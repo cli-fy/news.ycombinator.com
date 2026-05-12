@@ -1,6 +1,7 @@
 node_modules/
-dist/
 har/
+
+# dist/ must be committed so clify can install the GitHub plugin.
 
 # env
 .env
