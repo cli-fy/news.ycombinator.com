@@ -1,0 +1,1350 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "clify-hackernews",
+    "version": "0.1.0",
+    "description": "RESTful API for Hacker News data via Firebase and Algolia APIs."
+  },
+  "servers": [
+    {
+      "url": "https://hacker-news.firebaseio.com/v0",
+      "description": "Firebase API"
+    },
+    {
+      "url": "https://hn.algolia.com/api/v1",
+      "description": "Algolia Search API"
+    }
+  ],
+  "components": {
+    "schemas": {},
+    "parameters": {}
+  },
+  "paths": {
+    "/topstories": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "Get top stories",
+        "description": "Returns an array of up to 500 top story IDs.",
+        "responses": {
+          "200": {
+            "description": "List of top story IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "List of story/item ids."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/newstories": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "Get new stories",
+        "description": "Returns an array of up to 500 new story IDs.",
+        "responses": {
+          "200": {
+            "description": "List of new story IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "List of story/item ids."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/beststories": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "Get best stories",
+        "description": "Returns an array of up to 500 best story IDs.",
+        "responses": {
+          "200": {
+            "description": "List of best story IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "List of story/item ids."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/askstories": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "Get Ask HN stories",
+        "description": "Returns an array of up to 200 Ask HN story IDs.",
+        "responses": {
+          "200": {
+            "description": "List of Ask HN story IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "List of story/item ids."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/showstories": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "Get Show HN stories",
+        "description": "Returns an array of up to 200 Show HN story IDs.",
+        "responses": {
+          "200": {
+            "description": "List of Show HN story IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "List of story/item ids."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jobstories": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "Get job stories",
+        "description": "Returns an array of up to 200 job story IDs.",
+        "responses": {
+          "200": {
+            "description": "List of job story IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "List of story/item ids."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/{id}": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get item by ID",
+        "description": "Returns a single item (story, comment, job, poll, or pollopt) by its ID.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "The item's unique id."
+            },
+            "required": true,
+            "description": "The item's unique id.",
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The item's unique id."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "story"
+                          ]
+                        },
+                        "by": {
+                          "type": "string",
+                          "description": "The username of the item's author."
+                        },
+                        "time": {
+                          "type": "integer",
+                          "description": "Creation date of the item, in Unix Time."
+                        },
+                        "dead": {
+                          "type": "boolean",
+                          "description": "True if the item is dead."
+                        },
+                        "deleted": {
+                          "type": "boolean",
+                          "description": "True if the item is deleted."
+                        },
+                        "descendants": {
+                          "type": "integer",
+                          "description": "In the case of stories or polls, the total comment count."
+                        },
+                        "kids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          },
+                          "description": "The ids of the item's comments, in ranked display order."
+                        },
+                        "score": {
+                          "type": "integer",
+                          "description": "The story's score, or the votes for a pollopt."
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "The title of the story, poll or job. HTML."
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "The comment, story or poll text. HTML."
+                        },
+                        "url": {
+                          "type": "string",
+                          "description": "The URL of the story."
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "by",
+                        "time",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The item's unique id."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "comment"
+                          ]
+                        },
+                        "by": {
+                          "type": "string",
+                          "description": "The username of the item's author."
+                        },
+                        "time": {
+                          "type": "integer",
+                          "description": "Creation date of the item, in Unix Time."
+                        },
+                        "dead": {
+                          "type": "boolean",
+                          "description": "True if the item is dead."
+                        },
+                        "deleted": {
+                          "type": "boolean",
+                          "description": "True if the item is deleted."
+                        },
+                        "parent": {
+                          "type": "integer",
+                          "description": "The comment's parent: either another comment or the relevant story."
+                        },
+                        "kids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          },
+                          "description": "The ids of the item's comments, in ranked display order."
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "The comment, story or poll text. HTML."
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "by",
+                        "time",
+                        "parent",
+                        "text"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The item's unique id."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "job"
+                          ]
+                        },
+                        "by": {
+                          "type": "string",
+                          "description": "The username of the item's author."
+                        },
+                        "time": {
+                          "type": "integer",
+                          "description": "Creation date of the item, in Unix Time."
+                        },
+                        "dead": {
+                          "type": "boolean",
+                          "description": "True if the item is dead."
+                        },
+                        "deleted": {
+                          "type": "boolean",
+                          "description": "True if the item is deleted."
+                        },
+                        "score": {
+                          "type": "integer",
+                          "description": "The story's score, or the votes for a pollopt."
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "The title of the story, poll or job. HTML."
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "The comment, story or poll text. HTML."
+                        },
+                        "url": {
+                          "type": "string",
+                          "description": "The URL of the story."
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "by",
+                        "time",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The item's unique id."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "poll"
+                          ]
+                        },
+                        "by": {
+                          "type": "string",
+                          "description": "The username of the item's author."
+                        },
+                        "time": {
+                          "type": "integer",
+                          "description": "Creation date of the item, in Unix Time."
+                        },
+                        "dead": {
+                          "type": "boolean",
+                          "description": "True if the item is dead."
+                        },
+                        "deleted": {
+                          "type": "boolean",
+                          "description": "True if the item is deleted."
+                        },
+                        "descendants": {
+                          "type": "integer",
+                          "description": "In the case of stories or polls, the total comment count."
+                        },
+                        "kids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          },
+                          "description": "The ids of the item's comments, in ranked display order."
+                        },
+                        "parts": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          },
+                          "description": "A list of related pollopts, in display order."
+                        },
+                        "score": {
+                          "type": "integer",
+                          "description": "The story's score, or the votes for a pollopt."
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "The title of the story, poll or job. HTML."
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "The comment, story or poll text. HTML."
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "by",
+                        "time",
+                        "parts",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The item's unique id."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "pollopt"
+                          ]
+                        },
+                        "by": {
+                          "type": "string",
+                          "description": "The username of the item's author."
+                        },
+                        "time": {
+                          "type": "integer",
+                          "description": "Creation date of the item, in Unix Time."
+                        },
+                        "dead": {
+                          "type": "boolean",
+                          "description": "True if the item is dead."
+                        },
+                        "deleted": {
+                          "type": "boolean",
+                          "description": "True if the item is deleted."
+                        },
+                        "poll": {
+                          "type": "integer",
+                          "description": "The poll's unique id."
+                        },
+                        "score": {
+                          "type": "integer",
+                          "description": "The story's score, or the votes for a pollopt."
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "The comment, story or poll text. HTML."
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "by",
+                        "time",
+                        "poll",
+                        "text"
+                      ]
+                    }
+                  ],
+                  "description": "A Hacker News item (story, comment, job, poll, or pollopt)."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user by ID",
+        "description": "Returns a single user by their username.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The user's unique username."
+            },
+            "required": true,
+            "description": "The user's unique username.",
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The user's unique username. Case-sensitive."
+                    },
+                    "created": {
+                      "type": "integer",
+                      "description": "Creation date of the user, in Unix Time."
+                    },
+                    "karma": {
+                      "type": "integer",
+                      "description": "The user's karma."
+                    },
+                    "about": {
+                      "type": "string",
+                      "description": "The user's optional self-description. HTML."
+                    },
+                    "submitted": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      },
+                      "description": "List of the user's stories, polls and comments."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "created",
+                    "karma"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/maxitem": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get max item ID",
+        "description": "Returns the current largest item id.",
+        "responses": {
+          "200": {
+            "description": "Current max item ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "description": "The current largest item id."
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updates": {
+      "get": {
+        "tags": [
+          "Updates"
+        ],
+        "summary": "Get recent updates",
+        "description": "Returns items and profiles that have changed recently.",
+        "responses": {
+          "200": {
+            "description": "Recent updates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      },
+                      "description": "List of item ids that have been updated recently."
+                    },
+                    "profiles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of user names that have been updated recently."
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "profiles"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search HN by relevance",
+        "description": "Search Hacker News stories and comments by relevance using Algolia.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Search query string."
+            },
+            "required": true,
+            "description": "Search query string.",
+            "name": "query",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Filter by tags (e.g., story, comment, poll, show_hn, ask_hn, author_USERNAME)."
+            },
+            "required": false,
+            "description": "Filter by tags (e.g., story, comment, poll, show_hn, ask_hn, author_USERNAME).",
+            "name": "tags",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "nullable": true,
+              "minimum": 0,
+              "default": 0,
+              "description": "Page number (0-indexed)."
+            },
+            "required": false,
+            "description": "Page number (0-indexed).",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "description": "Number of hits per page."
+            },
+            "required": false,
+            "description": "Number of hits per page.",
+            "name": "hitsPerPage",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "objectID": {
+                            "type": "string",
+                            "description": "The item's unique id (as string)."
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "Creation date in ISO 8601 format."
+                          },
+                          "created_at_i": {
+                            "type": "integer",
+                            "description": "Creation date in Unix Time."
+                          },
+                          "author": {
+                            "type": "string",
+                            "description": "The username of the item's author."
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "The title of the story."
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "The text of the comment or story."
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "The URL of the story."
+                          },
+                          "points": {
+                            "type": "integer",
+                            "description": "The story's score."
+                          },
+                          "num_comments": {
+                            "type": "integer",
+                            "description": "The number of comments."
+                          },
+                          "children": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer"
+                            },
+                            "description": "The ids of the item's comments."
+                          },
+                          "story_id": {
+                            "type": "integer",
+                            "description": "The story id (for comments)."
+                          },
+                          "_tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Tags for the item."
+                          },
+                          "_highlightResult": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "matchLevel": {
+                                  "type": "string",
+                                  "enum": [
+                                    "none",
+                                    "partial",
+                                    "full"
+                                  ]
+                                },
+                                "matchedWords": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "fullyHighlighted": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "matchLevel",
+                                "matchedWords"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "objectID",
+                          "created_at",
+                          "created_at_i",
+                          "author",
+                          "_tags"
+                        ]
+                      },
+                      "description": "List of search results."
+                    },
+                    "nbHits": {
+                      "type": "integer",
+                      "description": "Number of hits total."
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (0-indexed)."
+                    },
+                    "nbPages": {
+                      "type": "integer",
+                      "description": "Number of pages total."
+                    },
+                    "hitsPerPage": {
+                      "type": "integer",
+                      "description": "Number of hits per page."
+                    },
+                    "processingTimeMS": {
+                      "type": "integer",
+                      "description": "Processing time in milliseconds."
+                    },
+                    "query": {
+                      "type": "string",
+                      "description": "The query string."
+                    },
+                    "params": {
+                      "type": "string",
+                      "description": "The search parameters."
+                    },
+                    "exhaustive": {
+                      "type": "object",
+                      "properties": {
+                        "nbHits": {
+                          "type": "boolean"
+                        },
+                        "typo": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "nbHits",
+                        "typo"
+                      ]
+                    },
+                    "exhaustiveNbHits": {
+                      "type": "boolean"
+                    },
+                    "exhaustiveTypo": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "hits",
+                    "nbHits",
+                    "page",
+                    "nbPages",
+                    "hitsPerPage",
+                    "processingTimeMS",
+                    "query",
+                    "params"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search_by_date": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search HN by date",
+        "description": "Search Hacker News stories and comments by date using Algolia.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Search query string."
+            },
+            "required": true,
+            "description": "Search query string.",
+            "name": "query",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Filter by tags (e.g., story, comment, poll, show_hn, ask_hn, author_USERNAME)."
+            },
+            "required": false,
+            "description": "Filter by tags (e.g., story, comment, poll, show_hn, ask_hn, author_USERNAME).",
+            "name": "tags",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "nullable": true,
+              "minimum": 0,
+              "default": 0,
+              "description": "Page number (0-indexed)."
+            },
+            "required": false,
+            "description": "Page number (0-indexed).",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "description": "Number of hits per page."
+            },
+            "required": false,
+            "description": "Number of hits per page.",
+            "name": "hitsPerPage",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "objectID": {
+                            "type": "string",
+                            "description": "The item's unique id (as string)."
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "Creation date in ISO 8601 format."
+                          },
+                          "created_at_i": {
+                            "type": "integer",
+                            "description": "Creation date in Unix Time."
+                          },
+                          "author": {
+                            "type": "string",
+                            "description": "The username of the item's author."
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "The title of the story."
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "The text of the comment or story."
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "The URL of the story."
+                          },
+                          "points": {
+                            "type": "integer",
+                            "description": "The story's score."
+                          },
+                          "num_comments": {
+                            "type": "integer",
+                            "description": "The number of comments."
+                          },
+                          "children": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer"
+                            },
+                            "description": "The ids of the item's comments."
+                          },
+                          "story_id": {
+                            "type": "integer",
+                            "description": "The story id (for comments)."
+                          },
+                          "_tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Tags for the item."
+                          },
+                          "_highlightResult": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "matchLevel": {
+                                  "type": "string",
+                                  "enum": [
+                                    "none",
+                                    "partial",
+                                    "full"
+                                  ]
+                                },
+                                "matchedWords": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "fullyHighlighted": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "matchLevel",
+                                "matchedWords"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "objectID",
+                          "created_at",
+                          "created_at_i",
+                          "author",
+                          "_tags"
+                        ]
+                      },
+                      "description": "List of search results."
+                    },
+                    "nbHits": {
+                      "type": "integer",
+                      "description": "Number of hits total."
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Current page (0-indexed)."
+                    },
+                    "nbPages": {
+                      "type": "integer",
+                      "description": "Number of pages total."
+                    },
+                    "hitsPerPage": {
+                      "type": "integer",
+                      "description": "Number of hits per page."
+                    },
+                    "processingTimeMS": {
+                      "type": "integer",
+                      "description": "Processing time in milliseconds."
+                    },
+                    "query": {
+                      "type": "string",
+                      "description": "The query string."
+                    },
+                    "params": {
+                      "type": "string",
+                      "description": "The search parameters."
+                    },
+                    "exhaustive": {
+                      "type": "object",
+                      "properties": {
+                        "nbHits": {
+                          "type": "boolean"
+                        },
+                        "typo": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "nbHits",
+                        "typo"
+                      ]
+                    },
+                    "exhaustiveNbHits": {
+                      "type": "boolean"
+                    },
+                    "exhaustiveTypo": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "hits",
+                    "nbHits",
+                    "page",
+                    "nbPages",
+                    "hitsPerPage",
+                    "processingTimeMS",
+                    "query",
+                    "params"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream API error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

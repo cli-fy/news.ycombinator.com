@@ -1,0 +1,27 @@
+{
+  "name": "clify-hackernews",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:cli-fy/news.ycombinator.com",
+  "clify": {
+    "name": "hackernews",
+    "description": "Fetch data from Hacker News via RESTful API.",
+    "entry": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "prepack": "tsdown"
+  },
+  "dependencies": {
+    "@hono/zod-openapi": "^0.19.5",
+    "hono": "^4.7.7",
+    "incur": "^0.4.5",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "tsdown": "^0.16.0",
+    "typescript": "^5.9.0"
+  }
+}
